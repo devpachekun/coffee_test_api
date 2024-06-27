@@ -1,7 +1,7 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from .models import User, UserTransaction, Coffee
-from .serializers import UserSerializer, UserTransactionSerializer, CoffeeSerializer
+from .serializers import UserSerializer, UserTransactionSerializer, CoffeeSerializer, GetUsersSerializer
 from rest_framework import permissions, status
 
 from datetime import datetime
@@ -103,4 +103,14 @@ class CoffeesView(APIView):
         
         coffee.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+    
+
+class UsersView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+    serializer_class = GetUsersSerializer
+
+    def get(self, request):
+        lista_usuarios = User.objects.all().filter(rol = 'USUARIO')
+        serializer = GetUsersSerializer(lista_usuarios, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
         

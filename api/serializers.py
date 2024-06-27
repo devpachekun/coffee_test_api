@@ -31,3 +31,8 @@ class CoffeeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Coffee
         fields = '__all__'
+
+class GetUsersSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['id_usuario', 'username', 'correo', 'is_active']

@@ -12,5 +12,6 @@ urlpatterns = [
     path('user-transaction/', views.UserTransactionView.as_view(), name='user-transaction'),
     path('get-coffees/', views.PublicCoffeesView.as_view(), name='public-get-coffees'),
     path('admin/coffees/', views.CoffeesView.as_view(), name='admin-coffees'),
-    path('admin/coffees/<int:pk>/', views.CoffeesView.as_view(), name='coffees-detail')
+    path('admin/coffees/<int:pk>/', views.CoffeesView.as_view(), name='coffees-detail'),
+    path('admin/users/', views.UsersView.as_view(), name='users-detail')
 ]
