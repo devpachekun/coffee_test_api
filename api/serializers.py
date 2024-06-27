@@ -4,7 +4,7 @@ from .models import User, UserTransaction, Coffee
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['correo','password','is_active','is_superuser','is_staff']
+        fields = ['username','correo','password','is_active','is_superuser','is_staff']
 
 
     def create(self, validated_data):

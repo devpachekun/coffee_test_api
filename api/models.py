@@ -29,6 +29,7 @@ class CustomUserManager(UserManager):
 ## MODELO OFICIAL DEL USUARIO PARA UCM SPORTS
 class User(AbstractBaseUser, PermissionsMixin):
     id_usuario = models.AutoField(primary_key=True)
+    username = models.CharField(max_length=50)
     correo = models.EmailField(blank = True, default='', unique=True)
     
     rol = models.CharField(max_length=10)
