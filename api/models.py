@@ -79,7 +79,7 @@ class Coffee(models.Model):
     name = models.CharField(max_length=50)
     description = models.CharField(max_length=100)
     price = models.IntegerField()
-    image64 = models.CharField(max_length=100, null=True)
+    image64 = models.TextField()
 
 
 
